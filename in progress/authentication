@@ -1,0 +1,28 @@
+JavaScript User Authentication Libraries:
+
+https://blog.bitsrc.io/6-javascript-user-authentication-libraries-for-2019-6c7c45fbe458  
+//list of the most popular
+
+I) Firebase Authentication //for small apps
+- https://firebase.google.com/docs/auth/
+
+II) Passport JS
+- http://www.passportjs.org/docs/
+- https://blog.risingstack.com/node-hero-node-js-authentication-passport-js/
+- https://medium.freecodecamp.org/learn-how-to-handle-authentication-with-node-using-passport-js-4a56ed18e81e
+
+III) Auth0
+- https://auth0.com/docs/quickstart/webapp/nodejs
+- https://auth0.com/docs/api/authentication#social
+
+IV) PERMIT
+- https://github.com/ianstormtaylor/permit
+- https://github.com/ianstormtaylor/permit/tree/master/examples
+
+V) GRANT
+- https://github.com/jaredhanson/oauth2orize
+
+VI) Feathers authentication management
+- https://blog.feathersjs.com/how-to-setup-email-verification-in-feathersjs-72ce9882e744
+- https://github.com/codingfriend1/Feathers-Vue
+
