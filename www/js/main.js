@@ -1,0 +1,1 @@
+// plik javaScript do definowania funkcji
