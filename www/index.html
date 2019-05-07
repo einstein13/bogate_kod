@@ -2,9 +2,41 @@
 <html>
 <head>
     <meta http-equiv="Content-type" content="text/html; charset=utf-8">
+    <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css" />
     <link rel="stylesheet" href="css/style.css" type="text/css" />
+    <title>Forex Offline</title>
 </head>
 	<body>
-        <center><img src="images/currencly.png" alt="Forex Offline" width="75%" height="75%"></center>
+        <div class="container">
+            <div class="row" style="margin-top: 5px;">
+                <div class="col">
+                    <button type="button" class="btn btn-info" style="height: 100%; width: 100%;"
+                        onclick="$('#menu-column').toggle();">
+                        Menu
+                    </button>
+                </div>
+                <div class="col-8">
+                    <img src="images/currencly.png" alt="Forex Offline" style="width: 100%;">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-3" id="menu-column" style="display:none;">
+                    Menu column
+                </div>
+                <div class="col">
+                    One of three columns
+                </div>
+                <div class="col">
+                    One of three columns
+                </div>
+                <div class="col">
+                    One of three columns
+                </div>
+            </div>
+        </div>
+        <script src="js/jquery-3.3.1.min.js"></script>
+        <script src="js/popper.min.js"></script>
+        <script src="js/bootstrap.min.js"></script>
+        <script src="js/main.js"></script>
 	</body>
 </html>
