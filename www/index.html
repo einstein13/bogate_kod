@@ -1,42 +1,74 @@
 ﻿<!DOCTYPE html>
 <html>
 <head>
-    <meta http-equiv="Content-type" content="text/html; charset=utf-8">
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <meta name="format-detection" content="telephone=no">
+    <meta name="msapplication-tap-highlight" content="no">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="css/style.css" type="text/css">
     <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css" />
-    <link rel="stylesheet" href="css/style.css" type="text/css" />
-    <title>Forex Offline</title>
+    <link rel="stylesheet" href="css/bootstrap.css" type="text/css" />
+    <script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
+    <script type="text/javascript" src="js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="cordova.js"></script>
+    <script type="text/javascript" src="js/main.js"></script>
 </head>
-	<body>
-        <div class="container">
-            <div class="row" style="margin-top: 5px;">
-                <div class="col">
-                    <button type="button" class="btn btn-info" style="height: 100%; width: 100%;"
-                        onclick="$('#menu-column').toggle();">
-                        Menu
-                    </button>
-                </div>
-                <div class="col-8">
-                    <img src="images/currencly.png" alt="Forex Offline" style="width: 100%;">
-                </div>
+<body>
+    <div class="container" style="padding:0px 0px 0px 0px">
+
+        <!-- Top Navigation Menu -->
+        <div class="topnav">
+            <input type="text" class="search-focus" name="search" style="padding-left:26px" placeholder="Search...">
+
+            <a class="active" style="text-align:center;font-size:15px;color:white"><b>Forex Offline</b></a>
+            <div id="myLinks">
+                <a href="index.html">HOME</a>
+                <a href="html/transaction.html">DODAJ TRANSAKCJE</a>
+                <a href="html/history.html">HISTORIA OPERACJI</a>
+                <a href="html/account.html">KONTO UŻYTKOWNIKA</a>
+                <a href="html/signIn.html">ZALOGUJ SIĘ</a>
             </div>
-            <div class="row">
-                <div class="col-3" id="menu-column" style="display:none;">
-                    Menu column
-                </div>
-                <div class="col">
-                    One of three columns
-                </div>
-                <div class="col">
-                    One of three columns
-                </div>
-                <div class="col">
-                    One of three columns
-                </div>
+            <a href="javascript:void(0);" class="icon" onclick="menuFunction()">
+                <i class="fa fa-bars"></i>
+            </a>
+        </div>
+        <!-- End Navigation Manu -->
+
+        <center><font><b>Wybierz najbardziej korzystną ofertę kupna/sprzedaży.</b></font><br></center>
+        <center><font><b>Wypełnij poniższe pola a wyszukamy najlepszą ofertę dla Ciebie!</b></font></center>
+        <p></p><p></p><p></p>
+        <div class="dropdown">
+            <!--<center><h6><font color="yellow">Wybierz transakcje:</font></h6></center>-->
+            <button class="btn btn-primary dropdown-toggle center-block" type="button" id="transaction" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="width:50%;text-transform:uppercase">
+                TRANSAKCJA:
+            </button>
+            <div class="dropdown-menu dropdown-menu-center" aria-labelledby="transaction" style="width:50%;text-transform:uppercase">
+                <a class="dropdown-item">Kupno</a>
+                <a class="dropdown-item">Sprzedaż</a>
             </div>
         </div>
-        <script src="js/jquery-3.3.1.min.js"></script>
-        <script src="js/popper.min.js"></script>
-        <script src="js/bootstrap.min.js"></script>
-        <script src="js/main.js"></script>
-	</body>
-</html>
+        <p></p><p></p><p></p>
+        <div class="dropdown">
+            <!--<center><h6><font color="yellow">Wybierz walute:</font></h6></center>-->
+            <button class="btn btn-primary dropdown-toggle center-block" type="button" id="currency" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="width:50%;text-transform:uppercase">
+                WALUTA:
+            </button>
+            <div class="dropdown-menu dropdown-menu-center" aria-labelledby="currency" style="width:50%">
+                <a class="dropdown-item">Euro</a>
+                <a class="dropdown-item">Dolar</a>
+                <a class="dropdown-item">Funt Brytyjski</a>
+            </div>
+        </div>
+        <p></p><p></p><p></p>
+        <div class="form-group">
+            <input type="number" name="howMuch" class="form-control center-block" id="howMuch" placeholder="Ilość waluty obcej" style="width:50%;text-align:center">
+        </div>
+        <p></p>
+        <button class="btn btn-success center-block" type="button" id="search" aria-haspopup="true" aria-expanded="false" style="width:50%" onclick="clickMe()">
+            SZUKAJ
+        </button>
+    </div>
+    <script>includeHTML();</script>
+    <script>getItem();</script>
+</body>
+</html >
