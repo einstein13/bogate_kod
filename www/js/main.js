@@ -111,6 +111,7 @@ function displayShow(idElement, bool) {
 
 function getData() {
     $(".form_datetime").datetimepicker({ format: 'yyyy-mm-dd' });
+<<<<<<< HEAD
 }
 
 // plik javaScript do definowania funkcji
@@ -131,4 +132,6 @@ function signIn() {
         $(".signIn").removeClass("active-dx");
         $(".signUp").removeClass("inactive-sx");
     });
+=======
+>>>>>>> 7102f1d0686dade6ce366acf2e79f730c536383c
 }

@@ -107,6 +107,7 @@ section {
     border-radius: 0px;
     text-align: right;
     height: 39px;
+<<<<<<< HEAD
     width: 45%;
     text-transform:uppercase
 }
@@ -122,6 +123,23 @@ section {
     display: none;
     position: absolute;
     width: 45%;
+=======
+    width: 45%;
+    text-transform:uppercase
+}
+
+.searchTip {
+    width: 45%;
+    font-size: 16px;
+    float: right;
+    margin-right: 10px;
+}
+
+.searchTip #liTips{
+    display: none;
+    position: absolute;
+    width: 45%;
+>>>>>>> 7102f1d0686dade6ce366acf2e79f730c536383c
     background-color: white;
     border-bottom: 1px solid #4CAF50;
     border-left: 1px solid #4CAF50;
@@ -130,6 +148,7 @@ section {
     max-height:75px;
     border-bottom-left-radius: 20px;
     margin-right: 10px;
+<<<<<<< HEAD
 }
 
 
@@ -386,4 +405,6 @@ input {
         transform: perspective(100px) translate3d(0px, 0px, 0px);
         opacity: 1;
     }
+=======
+>>>>>>> 7102f1d0686dade6ce366acf2e79f730c536383c
 }
