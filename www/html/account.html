@@ -10,14 +10,19 @@
     <link rel="stylesheet" href="../css/bootstrap.css" type="text/css" />
     <script type="text/javascript" src="../js/jquery-3.3.1.min.js"></script>
     <script type="text/javascript" src="../js/bootstrap.min.js"></script>
-    <script type="text/javascript" src="../cordova.js"></script>
     <script type="text/javascript" src="../js/main.js"></script>
 </head>
 <body>
-    <div class="container" style="padding:0px 0px 0px 0px">
+    <div class="container" style="padding:0px 0px 0px 0px;position:relative">
         <div w3-include-html="menu.html"></div>
-        <center><h1>Konto użytkownika</h1></center>
+        <!-- Dołącz plik podpowiedzi -->
+        <div w3-include-html="searchTips.html"></div>
+        <!-- Koniec dołączenia podpowiedzi -->
+        <dir onclick="displayShow('liTips','false')">
+            <center><h1>Konto uzytkownika</h1></center>
+        </dir>
     </div>
     <script>includeHTML();</script>
+    <script>filterSearch();</script>
 </body>
 </html>

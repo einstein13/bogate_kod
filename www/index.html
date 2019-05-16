@@ -10,19 +10,16 @@
     <link rel="stylesheet" href="css/bootstrap.css" type="text/css" />
     <script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
     <script type="text/javascript" src="js/bootstrap.min.js"></script>
-    <script type="text/javascript" src="cordova.js"></script>
     <script type="text/javascript" src="js/main.js"></script>
 </head>
 <body>
-    <div class="container" style="padding:0px 0px 0px 0px">
-
-        <!-- Top Navigation Menu -->
+    <div class="container" style="padding:0px 0px 0px 0px;position:relative">
+        <!-- Struktura Menu -->
         <div class="topnav">
-            <input type="text" class="search-focus" name="search" style="padding-left:26px" placeholder="Search...">
-
-            <a class="active" style="text-align:center;font-size:15px;color:white"><b>Forex Offline</b></a>
-            <div id="myLinks">
-                <a href="index.html">HOME</a>
+            <input type="text" id="filterInput" onclick="displayShow('liTips','true')" onkeyup="filterSearch()" class="search-focus" style="padding-left:26px;font-size:16px" placeholder="Szukaj">
+            <a class="active" onclick="displayShow('liTips','false')" style="text-align:center;font-size:15px;color:white"><b>Forex Offline</b></a>
+            <div id="myLinks" onclick="displayShow('liTips','false')">
+                <a href="#">HOME</a>
                 <a href="html/transaction.html">DODAJ TRANSAKCJE</a>
                 <a href="html/history.html">HISTORIA OPERACJI</a>
                 <a href="html/account.html">KONTO UŻYTKOWNIKA</a>
@@ -32,43 +29,59 @@
                 <i class="fa fa-bars"></i>
             </a>
         </div>
-        <!-- End Navigation Manu -->
-
-        <center><font><b>Wybierz najbardziej korzystną ofertę kupna/sprzedaży.</b></font><br></center>
-        <center><font><b>Wypełnij poniższe pola a wyszukamy najlepszą ofertę dla Ciebie!</b></font></center>
-        <p></p><p></p><p></p>
-        <div class="dropdown">
-            <!--<center><h6><font color="yellow">Wybierz transakcje:</font></h6></center>-->
-            <button class="btn btn-primary dropdown-toggle center-block" type="button" id="transaction" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="width:50%;text-transform:uppercase">
-                TRANSAKCJA:
-            </button>
-            <div class="dropdown-menu dropdown-menu-center" aria-labelledby="transaction" style="width:50%;text-transform:uppercase">
-                <a class="dropdown-item">Kupno</a>
-                <a class="dropdown-item">Sprzedaż</a>
+        <!-- Koniec struktury Menu -->
+        <!-- Poczatek podpowiedzi -->
+        <div w3-include-html="html/searchTips.html"></div>
+        <!-- Koniec podpowiedzi -->
+        <dir onclick="displayShow('liTips','false')">
+            <div class="separator"></div>
+            <!-- Poczatek tekstu informacyjnego -->
+            <div>
+                <center><font><b>Wybierz najbardziej korzystną ofertę kupna/sprzedaży.</b></font><br></center>
+                <center><font><b>Wypełnij poniższe pola a wyszukamy najlepszą ofertę dla Ciebie!</b></font></center>
             </div>
-        </div>
-        <p></p><p></p><p></p>
-        <div class="dropdown">
-            <!--<center><h6><font color="yellow">Wybierz walute:</font></h6></center>-->
-            <button class="btn btn-primary dropdown-toggle center-block" type="button" id="currency" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="width:50%;text-transform:uppercase">
-                WALUTA:
-            </button>
-            <div class="dropdown-menu dropdown-menu-center" aria-labelledby="currency" style="width:50%">
-                <a class="dropdown-item">Euro</a>
-                <a class="dropdown-item">Dolar</a>
-                <a class="dropdown-item">Funt Brytyjski</a>
+            <!-- Koniec tekstu informacyjnego -->
+            <div class="separator"></div>
+            <!-- Poczatek wyswietlenia przycisku TRANSAKCJA -->
+            <div class="dropdown">
+                <button class="btn btn-primary dropdown-toggle center-block" type="button" id="transaction" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="width:50%;text-transform:uppercase">
+                    TRANSAKCJA:
+                </button>
+                <div class="dropdown-menu dropdown-menu-center" aria-labelledby="transaction" style="width:50%;text-transform:uppercase">
+                    <a class="dropdown-item"><center>Kupno</center></a>
+                    <a class="dropdown-item"><center>Sprzedaż</center></a>
+                </div>
             </div>
-        </div>
-        <p></p><p></p><p></p>
-        <div class="form-group">
-            <input type="number" name="howMuch" class="form-control center-block" id="howMuch" placeholder="Ilość waluty obcej" style="width:50%;text-align:center">
-        </div>
-        <p></p>
-        <button class="btn btn-success center-block" type="button" id="search" aria-haspopup="true" aria-expanded="false" style="width:50%" onclick="clickMe()">
-            SZUKAJ
-        </button>
+            <!-- Koniec wyswietlenia przycisku TRANSAKCJA -->
+            <div class="separator"></div>
+            <!-- Poczatek wyswietlenia przycisku WALUTA -->
+            <div class="dropdown">
+                <button class="btn btn-primary dropdown-toggle center-block" type="button" id="currency" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="width:50%;text-transform:uppercase">
+                    WALUTA:
+                </button>
+                <div class="dropdown-menu dropdown-menu-center" aria-labelledby="currency" style="width:50%">
+                    <a class="dropdown-item"><center>Euro</center></a>
+                    <a class="dropdown-item"><center>Dolar</center></a>
+                    <a class="dropdown-item"><center>Funt Brytyjski</center></a>
+                </div>
+            </div>
+            <!-- Koniec wyswietlenia przycisku WALUTA -->
+            <div class="separator"></div>
+            <!-- Poczatek wyswietlenia inputBoxa -->
+            <div class="form-group">
+                <input type="number" name="howMuch" class="form-control center-block" id="howMuch" placeholder="Ilość waluty obcej" style="width:50%;text-align:center">
+            </div>
+            <!-- Koniec wyswietlenia przycisku inputBoxa-->
+            <div class="separator"></div>
+            <!-- Poczatek wyswietlenia przycisku SZUKAJ -->
+            <button class="btn btn-success center-block" type="button" id="search" aria-haspopup="true" aria-expanded="false" style="width:50%" onclick="clickMe()">
+                SZUKAJ
+            </button>
+            <!-- Koniec wyswietlenia przycisku SZUKAJ -->
+        </dir>
     </div>
     <script>includeHTML();</script>
     <script>getItem();</script>
+    <script>filterSearch();</script>
 </body>
 </html >

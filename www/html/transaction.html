@@ -10,14 +10,84 @@
     <link rel="stylesheet" href="../css/bootstrap.css" type="text/css" />
     <script type="text/javascript" src="../js/jquery-3.3.1.min.js"></script>
     <script type="text/javascript" src="../js/bootstrap.min.js"></script>
-    <script type="text/javascript" src="../cordova.js"></script>
     <script type="text/javascript" src="../js/main.js"></script>
 </head>
 <body>
-    <div class="container" style="padding:0px 0px 0px 0px">
+    <div class="container" style="padding:0px 0px 0px 0px;position:relative">
         <div w3-include-html="menu.html"></div>
-        <center><h1>Transakcja</h1></center>
+        <!-- Dołącz plik podpowiedzi -->
+        <div w3-include-html="searchTips.html"></div>
+        <!-- Koniec dołączenia podpowiedzi -->
+        <dir onclick="displayShow('liTips','false')">
+            <div>
+                <center><font><b>Dodaj zrealizowaną transakcje.</b></font><br></center>
+                <center><font><b>Zbuduj historie swoich operacji!</b></font></center>
+            </div>
+            <div class="separator"></div>
+            <!-- Poczatek wyswietlenia przycisku TRANSAKCJA -->
+            <div class="dropdown">
+                <button class="btn btn-primary dropdown-toggle center-block" type="button" id="transaction" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="width:50%;text-transform:uppercase">
+                    TRANSAKCJA:
+                </button>
+                <div class="dropdown-menu dropdown-menu-center" aria-labelledby="transaction" style="width:50%;text-transform:uppercase">
+                    <a class="dropdown-item"><center>Kupno</center></a>
+                    <a class="dropdown-item"><center>Sprzedaż</center></a>
+                </div>
+            </div>
+            <!-- Koniec wyswietlenia przycisku TRANSAKCJA -->
+            <div class="separator"></div>
+            <!-- Poczatek wyswietlenia przycisku WALUTA -->
+            <div class="dropdown">
+                <button class="btn btn-primary dropdown-toggle center-block" type="button" id="transaction" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="width:50%;text-transform:uppercase">
+                    WALUTA:
+                </button>
+                <div class="dropdown-menu dropdown-menu-center" aria-labelledby="transaction" style="width:50%;text-transform:uppercase">
+                    <a class="dropdown-item"><center>EURO</center></a>
+                    <a class="dropdown-item"><center>DOLAR</center></a>
+                    <a class="dropdown-item"><center>FUNT BRYTYJSKI</center></a>
+                </div>
+            </div>
+            <!-- Koniec wyswietlenia przycisku WALUTA -->
+            <div class="separator"></div>
+            <!-- Poczatek wyswietlenia przycisku WALUTA -->
+            <div class="dropdown">
+                <button class="btn btn-primary dropdown-toggle center-block" type="button" id="transaction" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="width:50%;text-transform:uppercase">
+                    KANTOR:
+                </button>
+                <div class="dropdown-menu dropdown-menu-center" aria-labelledby="transaction" style="width:50%;text-transform:uppercase">
+                    <a class="dropdown-item"><center>GROSZEK</center></a>
+                    <a class="dropdown-item"><center>EXCHANGE</center></a>
+                    <a class="dropdown-item"><center>KARMELICKA</center></a>
+                    <a class="dropdown-item"><center>INNY</center></a>
+                </div>
+            </div>
+            <!-- Koniec wyswietlenia przycisku WALUTA -->
+            <div class="separator"></div>
+            <!-- Poczatek wyswietlenia inputBoxa ILOSC WALUTY -->
+            <div class="form-group">
+                <input type="number" name="howMuch" class="form-control center-block" id="howMuch" placeholder="Ilość waluty obcej" style="width:50%;text-align:center">
+            </div>
+            <!-- Koniec wyswietlenia przycisku inputBoxa ILOSC WALUTY-->
+            <div class="separator"></div>
+            <!-- Poczatek wyswietlenia inputBoxa KURS JEDNOSTKOWY -->
+            <div class="form-group">
+                <input type="number" name="unitRate" class="form-control center-block" id="unitRate" placeholder="Kurs jednostkowy" style="width:50%;text-align:center">
+            </div>
+            <!-- Koniec wyswietlenia przycisku inputBoxa KURS JEDNOSTKOWY-->
+            <div class="separator"></div>
+            <div class="form-group">
+               <input type="date" name="getDate" value="" class="form-control center-block" id="getDate" style="width:50%;padding-top:inherit">
+            </div>
+            <div class="separator"></div>
+            <!-- Poczatek wyswietlenia przycisku SZUKAJ -->
+            <button class="btn btn-success center-block" type="button" id="search" aria-haspopup="true" aria-expanded="false" style="width:50%" onclick="clickMe()">
+                SZUKAJ
+            </button>
+            <!-- Koniec wyswietlenia przycisku SZUKAJ -->
+        </dir>           
     </div>
     <script>includeHTML();</script>
+    <script>filterSearch();</script>
+    <script>getItem();</script>
 </body>
 </html>
