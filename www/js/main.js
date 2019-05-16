@@ -82,33 +82,3 @@ function getItem() {
         $(this).parents(".dropdown").find('.btn').val($(this).data('value'));
     });
 }
-
-// funkcja filtrujaca wyszukiwarkę.
-function filterSearch() {
-    let filterValue = document.getElementById('filterInput').value.toUpperCase(); // pobranie wartości z wyszukiwarki
-    let ul = document.getElementById('tips'); // pobranie elementu ul
-    let li = ul.querySelectorAll('li.name-item'); // pobranie listy podpowiedzi
-    // Pętla wyświetlająca przefiltrowane podpowiedzi
-    for (let i = 0; i < li.length; i++) {
-        let a = li[i].getElementsByTagName('a')[0];
-        if (a.innerHTML.toUpperCase().indexOf(filterValue) > -1) {
-            li[i].style.display = '';
-        } else {
-            li[i].style.display = 'none';
-        }
-    }
-}
-
-// funkcja wyświetla lub nie wyświetla danego diva.
-function displayShow(idElement, bool) {
-    x = document.getElementById(idElement);
-    if (bool === 'true') {
-        x.style.display = "block";
-    } else {
-        x.style.display = "none";
-    }
-}
-
-function getData() {
-    $(".form_datetime").datetimepicker({ format: 'yyyy-mm-dd' });
-}
