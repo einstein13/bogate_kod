@@ -1,9 +1,8 @@
 <!-- Top Navigation Menu -->
 <div class="topnav">
-    <input type="text" class="search-focus" name="search" style="padding-left:26px" placeholder="Search...">
-
-    <a class="active" style="text-align:center;font-size:15px;color:white"><b>Forex Offline</b></a>
-    <div id="myLinks">
+    <input type="text" id="filterInput" onclick="displayShow('liTips','true')" onkeyup="filterSearch()" class="search-focus" style="padding-left:26px;font-size:16px" placeholder="Search">
+    <a class="active" onclick="displayShow('liTips','false')" style="text-align:center;font-size:15px;color:white"><b>Forex Offline</b></a>
+    <div id="myLinks" onclick="displayShow('liTips','false')">
         <a href="../index.html">HOME</a>
         <a href="transaction.html">DODAJ TRANSAKCJE</a>
         <a href="history.html">HISTORIA OPERACJI</a>

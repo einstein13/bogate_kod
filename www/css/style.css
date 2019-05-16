@@ -8,6 +8,16 @@ body {
     font-size:16px;
 }
 
+.separator{
+    margin-top:20px;
+}
+
+.text {
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}
+
 .event {
     border-radius:4px;
     -webkit-border-radius:4px;
@@ -30,12 +40,13 @@ body {
 /*obs³uga menu*/
 .topnav {
     overflow: hidden;
-    background-color: #333;
+    background-color: black;
     position: relative;
 }
 
 .topnav #myLinks {
     display: none;
+    border-top:1px solid black;
 }
 
 .topnav a {
@@ -55,8 +66,8 @@ body {
 }
 
 .topnav a:hover {
-    background-color: rgba(168, 164, 164, 0.55);
-    color: black;
+    background-color: #4CAF50;
+    color: white;
 }
 
 .topnav input[type=text] {
@@ -83,13 +94,12 @@ section {
 }
 
 ::-moz-placeholder {
-    color: #fff;
+    color:silver;
 }
 
 .search-focus {
     background-image: url("../images/search-icon.png");
     background-repeat: no-repeat;
-    border: 1px solid #ccc;
     outline: none;
     background-size: 22px;
     background-position: 5px;
@@ -100,6 +110,30 @@ section {
 }
 
 .search-focus:focus {
+    border-radius: 0px;
     text-align: right;
+    height: 39px;
     width: 45%;
+    text-transform:uppercase
+}
+
+.searchTip {
+    width: 45%;
+    font-size: 16px;
+    float: right;
+    margin-right: 10px;
+}
+
+.searchTip #liTips{
+    display: none;
+    position: absolute;
+    width: 45%;
+    background-color: white;
+    border-bottom: 1px solid #4CAF50;
+    border-left: 1px solid #4CAF50;
+    border-right: 1px solid #4CAF50;
+    overflow:auto;
+    max-height:75px;
+    border-bottom-left-radius: 20px;
+    margin-right: 10px;
 }
