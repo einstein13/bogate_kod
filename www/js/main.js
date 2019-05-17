@@ -112,3 +112,24 @@ function displayShow(idElement, bool) {
 function getData() {
     $(".form_datetime").datetimepicker({ format: 'yyyy-mm-dd' });
 }
+// plik javaScript do definowania funkcji
+// metody objete w funkcjach jss 
+
+
+function logIn() {
+    $(".back").click(function () {
+        $(".signUp").addClass("active-sx");
+        $(".signIn").addClass("inactive-dx");
+        $(".signIn").removeClass("active-dx");
+        $(".signUp").removeClass("inactive-sx");
+    });
+}
+
+function signIn() {
+    $(".log-in").click(function () {
+        $(".signIn").addClass("active-dx");
+        $(".signUp").addClass("inactive-sx");
+        $(".signUp").removeClass("active-sx");
+        $(".signIn").removeClass("inactive-dx");
+    });
+}

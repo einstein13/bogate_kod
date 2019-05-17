@@ -19,10 +19,38 @@
         <div w3-include-html="searchTips.html"></div>
         <!-- Koniec dołączenia podpowiedzi -->
         <dir onclick="displayShow('liTips','false')">
-		 <center><h1>Logowanie</h1></center>
+            <!--Twój HTML-->
+            <div>
+
+                <form class="signUp">
+                    <h3>Create Your Account</h3>
+                    <p>
+                        Just enter your email address<br />
+                        and your password for join.
+                    </p>
+                    <input class="w100" type="email" placeholder="Insert eMail" reqired autocomplete='off' />
+                    <input type="password" placeholder="Insert Password" reqired />
+                    <input type="password" placeholder="Verify Password" reqired />
+                    <button class="form-btn sx log-in" type="button">Log In</button>
+                    <button class="form-btn dx" type="submit">Sign Up</button>
+                </form>
+                <form class="signIn">
+                    <h3>Welcome<br /></h3>
+                    <div class="separator" />
+                    <button class="fb" type="button">Log In With Facebook</button>
+                    <p>- or -</p>
+                    <input type="email" placeholder="Insert eMail" autocomplete='off' reqired />
+                    <input type="password" placeholder="Insert Password" reqired />
+                    <button class="form-btn sx back" type="button">Sign Up</button>
+                    <button class="form-btn dx" type="submit">Submit</button>
+                </form>
+            </div>
+            <!--Koniec twojego HTML-->
         </dir>
     </div>
     <script>includeHTML();</script>
     <script>filterSearch();</script>
+    <script>logIn();</script>
+    <script>signIn();</script>
 </body>
 </html>
