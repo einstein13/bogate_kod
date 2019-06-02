@@ -15,17 +15,13 @@
 <body>
     <div class="container" style="padding:0px 0px 0px 0px;position:relative">
         <div w3-include-html="menu.html"></div>
-        <!-- Dołącz plik podpowiedzi -->
-        <div w3-include-html="searchTips.html"></div>
-        <!-- Koniec dołączenia podpowiedzi -->
-        <dir onclick="displayShow('liTips','false')">
+        <dir>
             <!--Twój HTML-->
             <div>
-
                 <form class="signUp">
                     <h3>Create Your Account</h3>
                     <p>
-                        Just enter your email address<br />
+                        Just enter your email address<br/>
                         and your password for join.
                     </p>
                     <input class="w100" type="email" placeholder="Insert eMail" reqired autocomplete='off' />
@@ -35,21 +31,19 @@
                     <button class="form-btn dx" type="submit">Sign Up</button>
                 </form>
                 <form class="signIn">
-                    <h3>Welcome<br /></h3>
-                    <div class="separator" />
+                    <h3>Welcome<br/>Back !</h3>
                     <button class="fb" type="button">Log In With Facebook</button>
                     <p>- or -</p>
                     <input type="email" placeholder="Insert eMail" autocomplete='off' reqired />
                     <input type="password" placeholder="Insert Password" reqired />
-                    <button class="form-btn sx back" type="button">Sign Up</button>
-                    <button class="form-btn dx" type="submit">Submit</button>
+                    <button class="form-btn sx back" type="button">Back</button>
+                    <button class="form-btn dx" type="submit">Sign Up</button>
                 </form>
             </div>
             <!--Koniec twojego HTML-->
         </dir>
     </div>
     <script>includeHTML();</script>
-    <script>filterSearch();</script>
     <script>logIn();</script>
     <script>signIn();</script>
 </body>
