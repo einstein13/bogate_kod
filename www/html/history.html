@@ -15,7 +15,7 @@
 <body>
     <div class="container" style="padding:0px 0px 0px 0px;position:relative">
         <div w3-include-html="menu.html"></div>
-        <dir class="dataBody">
+        <dir class="dataBody" id="historyID">
             <!-- Poczatek wyswietlenia przycisku WALUTA -->
             <div class="dropdown">
                 <button class="btn btn-primary dropdown-toggle center-block" type="button" id="transaction" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="width:75%;text-transform:uppercase">
@@ -37,18 +37,12 @@
                     Na kwotę: <font color="red"><b>1900 zł</b></font><br />
                     W kantorze: <font color="red"><b>EXCHANGE</b></font>
                 </dir>
-                <dir class="historyBox">
-                    <i><u><b>15.04.2019</b></u></i><br />
-                    Sprzedaż: <font color="red"><b>500 $</b></font><br />
-                    Po kursie: <font color="red"><b>3.80</b></font><br />
-                    Na kwotę: <font color="red"><b>1900 zł</b></font><br />
-                    W kantorze: <font color="red"><b>EXCHANGE</b></font>
-                </dir>
             </center>
             <!-- Koniec wyswietlania poszczególnych operacji-->
         </dir>
     </div>
     <script>includeHTML();</script>
+    <script>showTest();</script>
     <script>getItem()</script>
 </body>
 </html>

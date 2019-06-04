@@ -58,6 +58,11 @@
     font-weight:bold;
 }
 
+.testHistory {
+    font-size: 15px;
+    font-weight: bold;
+}
+
 .text {
     margin: auto;
     text-align: center;
