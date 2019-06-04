@@ -1,50 +1,45 @@
 ﻿<!DOCTYPE html>
 <html>
 <head>
-    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
-    <meta name="format-detection" content="telephone=no">
-    <meta name="msapplication-tap-highlight" content="no">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="../css/style.css" type="text/css">
-    <link rel="stylesheet" href="../css/bootstrap.min.css" type="text/css" />
-    <link rel="stylesheet" href="../css/bootstrap.css" type="text/css" />
-    <script type="text/javascript" src="../js/jquery-3.3.1.min.js"></script>
-    <script type="text/javascript" src="../js/bootstrap.min.js"></script>
-    <script type="text/javascript" src="../js/main.js"></script>
+    <title>Firebase Login</title>
+
 </head>
 <body>
-    <div class="container" style="padding:0px 0px 0px 0px;position:relative">
-        <div w3-include-html="menu.html"></div>
-        <dir>
-            <!--Twój HTML-->
-            <div>
-                <form class="signUp">
-                    <h3>Create Your Account</h3>
-                    <p>
-                        Just enter your email address<br/>
-                        and your password for join.
-                    </p>
-                    <input class="w100" type="email" placeholder="Insert eMail" reqired autocomplete='off' />
-                    <input type="password" placeholder="Insert Password" reqired />
-                    <input type="password" placeholder="Verify Password" reqired />
-                    <button class="form-btn sx log-in" type="button">Log In</button>
-                    <button class="form-btn dx" type="submit">Sign Up</button>
-                </form>
-                <form class="signIn">
-                    <h3>Welcome<br/>Back !</h3>
-                    <button class="fb" type="button">Log In With Facebook</button>
-                    <p>- or -</p>
-                    <input type="email" placeholder="Insert eMail" autocomplete='off' reqired />
-                    <input type="password" placeholder="Insert Password" reqired />
-                    <button class="form-btn sx back" type="button">Back</button>
-                    <button class="form-btn dx" type="submit">Sign Up</button>
-                </form>
-            </div>
-            <!--Koniec twojego HTML-->
-        </dir>
-    </div>
-    <script>includeHTML();</script>
-    <script>logIn();</script>
-    <script>signIn();</script>
-</body>
+ 
+<div id="login_div" class="main-div">
+        <h3>Firebase Web login Example</h3>
+        <input type="email" placeholder="Email..." id="email_field" />
+        <input type="password" placeholder="Password..." id="password_field" />
+    
+        <button onclick="login()">Login to Account</button>
+        <button onclick="create_account()">Create a new account</button>
+        </div>
+    
+        <div id="user_div" class="loggedin-div">
+        <h3>Welcome User</h3>
+        <p id="user_para">Welcome to Firebase web login Example. You're currently logged in.</p>
+        <button onclick="logout()">Logout</button>
+        <button id="verify_btn" onclick="send_verification()">Send verification</button>
+        </div>
+    
+    
+    
+        <script src="https://www.gstatic.com/firebasejs/4.8.1/firebase.js"></script>
+        <script>
+        var firebaseConfig = {
+            apiKey: "AIzaSyB06d2W62viVhTxNX-RTX1EVXy6Rrhl5AA",
+            authDomain: "zadziala-f2c18.firebaseapp.com",
+            databaseURL: "https://zadziala-f2c18.firebaseio.com",
+            projectId: "zadziala-f2c18",
+            storageBucket: "zadziala-f2c18.appspot.com",
+            messagingSenderId: "885622318474",
+            appId: "1:885622318474:web:784f3ce2500dbf3a"
+        };
+        // Initialize Firebase
+        firebase.initializeApp(firebaseConfig);
+        </script>
+        <script src="../js/main.js"></script>
+    
+    </body>
 </html>
