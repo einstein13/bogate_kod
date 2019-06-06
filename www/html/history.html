@@ -11,38 +11,34 @@
     <script type="text/javascript" src="../js/jquery-3.3.1.min.js"></script>
     <script type="text/javascript" src="../js/bootstrap.min.js"></script>
     <script type="text/javascript" src="../js/main.js"></script>
+    <script type="text/javascript" src="../js/historyJS.js"></script>
 </head>
-<body>
-    <div class="container" style="padding:0px 0px 0px 0px;position:relative">
-        <div w3-include-html="menu.html"></div>
-        <dir class="dataBody" id="historyID">
-            <!-- Poczatek wyswietlenia przycisku WALUTA -->
-            <div class="dropdown">
-                <button class="btn btn-primary dropdown-toggle center-block" type="button" id="transaction" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="width:75%;text-transform:uppercase">
-                    SORTUJ
-                </button>
-                <div class="dropdown-menu dropdown-menu-center" aria-labelledby="transaction" style="width:75%;text-transform:uppercase">
-                    <a class="dropdown-item"><center>NAJSTARSZE</center></a>
-                    <a class="dropdown-item"><center>NAJNOWSZE</center></a>
-                </div>
+<body style="background-image:url('../images/money.jpg')">
+    <div style="padding:0px 0px 0px 0px;position:relative">
+        <!-- Top Navigation Menu -->
+        <div class="topnav">
+            <a class="active" style="text-align:center;font-size:15px;color:white"><b>HISTORIA OPERACJI</b></a>
+            <div id="myLinks">
+                <a href="../index.html">HOME</a>
+                <a href="javascript:checkLogin('no','transaction.html');">DODAJ TRANSAKCJE</a>
+                <a href="javascript:checkLogin('no','history.html');">HISTORIA OPERACJI</a>
+                <a href="javascript:checkLogin('no','account.html');">KONTO UŻYTKOWNIKA</a>
+                <a href="signIn.html">ZALOGUJ SIĘ</a>
             </div>
-            <!-- Koniec wyswietlenia przycisku WALUTA -->
-            <!-- Początek wyswietlania poszczególnych operacji-->
-            <dir class="separator"></dir>
-            <center>
-                <dir class="historyBox">
-                    <i><u><b>15.04.2019</b></u></i><br />
-                    Sprzedaż: <font color="red"><b>500 $</b></font><br />
-                    Po kursie: <font color="red"><b>3.80</b></font><br />
-                    Na kwotę: <font color="red"><b>1900 zł</b></font><br />
-                    W kantorze: <font color="red"><b>EXCHANGE</b></font>
-                </dir>
-            </center>
-            <!-- Koniec wyswietlania poszczególnych operacji-->
-        </dir>
+            <a href="javascript:void(0);" class="icon" onclick="menuFunction()">
+                <i class="fa fa-bars"></i>
+            </a>
+        </div>
+        <!-- End Navigation Manu -->
+        <dir class="separator"></dir>
+        <select id="historySort" class="btn btn-primary dropdown-toggle center-block" aria-haspopup="true" aria-expanded="false" style="width:75%;text-transform:uppercase;height:40px" onchange="selectOption()">
+            <option value="">POSORTUJ WEDŁUG:</option>
+            <option value="new">NAJNOWSZYCH</option>
+            <option value="old" style="text-align:center">NAJSTARSZYCH</option>
+        </select>
+        <dir class="separator"></dir>
+        <div class="dataBody" id="historyID"></div>
     </div>
-    <script>includeHTML();</script>
-    <script>showTest();</script>
-    <script>getItem()</script>
+    <script>showHistory();</script>
 </body>
 </html>

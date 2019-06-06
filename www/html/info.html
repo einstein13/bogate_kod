@@ -11,12 +11,13 @@
     <script type="text/javascript" src="../js/jquery-3.3.1.min.js"></script>
     <script type="text/javascript" src="../js/bootstrap.min.js"></script>
     <script type="text/javascript" src="../js/main.js"></script>
+    <script type="text/javascript" src="../js/historyJS.js"></script>
 </head>
 <body style="background-image:url('../images/money.jpg')">
     <div style="padding:0px 0px 0px 0px;position:relative">
         <!-- Top Navigation Menu -->
         <div class="topnav">
-            <a class="active" style="text-align:center;font-size:15px;color:white"><b>LOGOWANIE</b></a>
+            <a class="active" style="text-align:center;font-size:15px;color:white"><b>INFORMACJE</b></a>
             <div id="myLinks">
                 <a href="../index.html">HOME</a>
                 <a href="javascript:checkLogin('no','transaction.html');">DODAJ TRANSAKCJE</a>
@@ -29,35 +30,25 @@
             </a>
         </div>
         <!-- End Navigation Manu -->
-        <dir>
-            <!--Twój HTML-->
-            <div>
-                <form class="signUp">
-                    <h3>Create Your Account</h3>
-                    <p>
-                        Just enter your email address<br />
-                        and your password for join.
-                    </p>
-                    <input class="w100" type="email" placeholder="Insert eMail" reqired autocomplete='off' />
-                    <input type="password" placeholder="Insert Password" reqired />
-                    <input type="password" placeholder="Verify Password" reqired />
-                    <button class="form-btn sx log-in" type="button">Log In</button>
-                    <button class="form-btn dx" type="submit">Sign Up</button>
-                </form>
-                <form class="signIn">
-                    <h3>Welcome<br />Back !</h3>
-                    <button class="fb" type="button">Log In With Facebook</button>
-                    <p>- or -</p>
-                    <input type="email" placeholder="Insert eMail" autocomplete='off' reqired />
-                    <input type="password" placeholder="Insert Password" reqired />
-                    <button class="form-btn sx back" type="button">Back</button>
-                    <button class="form-btn dx" type="submit">Sign Up</button>
-                </form>
+        <div class="separator"></div>
+        <div class="borderText">
+            <div class="textInfo">
+                I. Aplikacja działa w oparciu o API udostępniane dzięki portalowi <b>quantor.pl</b>
             </div>
-            <!--Koniec twojego HTML-->
-        </dir>
+        </div>
+        <div class="separator"></div>
+        <div class="borderText">
+            <div class="textInfo">
+                II. Kursy walut mogą nieznacznie odbiegać od aktualnie oferowanych w kantorze. <br />
+            </div>
+        </div>
+        <div class="separator"></div>
+        <div class="borderText">
+            <div class="textInfo">
+                III. W wynikach wyszukiwania pojawia się określenie odległości do konkretnego kantoru i jest ona wyznaczana w linii prostej,
+                dlatego rzeczywista odległość może się nieco różnić.
+            </div>
+        </div>
     </div>
-    <script>logIn();</script>
-    <script>signIn();</script>
 </body>
 </html>

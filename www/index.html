@@ -12,16 +12,16 @@
     <script type="text/javascript" src="js/bootstrap.min.js"></script>
     <script type="text/javascript" src="js/main.js"></script>
 </head>
-<body>
-    <div class="container" style="padding:0px 0px 0px 0px;position:relative">
+<body style="background-image:url('images/money.jpg')">
+    <div style="padding:0px 0px 0px 0px;position:relative">
         <!-- Struktura Menu -->
         <div class="topnav">
             <a class="active" style="text-align:center;font-size:15px;color:white"><b>FOREX OFFLINE</b></a>
             <div id="myLinks">
                 <a href="index.html">HOME</a>
-                <a href="html/transaction.html">DODAJ TRANSAKCJE</a>
-                <a href="html/history.html">HISTORIA OPERACJI</a>
-                <a href="html/account.html">KONTO UŻYTKOWNIKA</a>
+                <a href="javascript:checkLogin('yes','html/transaction.html');">DODAJ TRANSAKCJE</a>
+                <a href="javascript:checkLogin('yes','html/history.html');">HISTORIA OPERACJI</a>
+                <a href="javascript:checkLogin('yes','html/account.html');">KONTO UŻYTKOWNIKA</a>
                 <a href="html/signIn.html">ZALOGUJ SIĘ</a>
             </div>
             <a href="javascript:void(0);" class="icon" onclick="menuFunction()">
@@ -32,19 +32,23 @@
         <dir class="dataBody" id="indexId">
             <div class="separator"></div>
             <!-- Poczatek tekstu informacyjnego -->
-            <div class="text">
-                WYSZUKIWARKA KANTORÓW STACJONARNYCH W TWOJEJ OKOLICY.
+            <div class="borderText">
+                <div class="text">
+                    WYSZUKIWARKA KANTORÓW STACJONARNYCH W TWOJEJ OKOLICY.
+                </div>
             </div>
             <!-- Koniec tekstu informacyjnego -->
             <div class="separator"></div>
             <!-- Poczatek wyswietlenia przycisku TRANSAKCJA -->
+            <center><div class="borderSelectOptins">WYBIERZ TRANSAKCJE:</div></center>
             <select id="transaction" class="btn btn-primary dropdown-toggle center-block" aria-haspopup="true" aria-expanded="false" style="width:75%;text-transform:uppercase;height:40px">
-                <option value="sale">CHCĘ KUPIĆ</option>
-                <option value="purchase" style="text-align:center">CHCĘ SPRZEDAĆ</option>
+                <option value="sale">KUPNO</option>
+                <option value="purchase" style="text-align:center">SPRZEDAŻ</option>
             </select>
             <!-- Koniec wyswietlenia przycisku TRANSAKCJA -->
             <div class="separator"></div>
             <!-- Poczatek wyswietlenia przycisku WALUTA -->
+            <center><div class="borderSelectOptins">WYBIERZ WALUTĘ:</div></center>
             <select id="currency" class="btn btn-primary dropdown-toggle center-block" aria-haspopup="true" aria-expanded="false" style="width:75%;text-transform:uppercase;height:40px">
                 <option value="EUR">EURO</option>
                 <option value="USD" style="text-align:center">DOLAR</option>
@@ -59,10 +63,13 @@
                 SZUKAJ
             </button>
             <!-- Koniec wyswietlenia przycisku SZUKAJ -->
+            <div class="separator"></div>
+            <div class="borderText">
+                <div class="textInfo">Kursy walut są udostępnione dzięki portalowi: <b>quantor.pl</b></div>
+                <div class="textInfo">Kliknij <a href="html/info.html"><i>tutaj</i></a>, aby dowiedzieć się więcej.</div>
+            </div>
         </dir>
     </div>
     <script>GPSDevice();</script>
-    <script>includeHTML();</script>
-    <script>getItem();</script>
 </body>
 </html >

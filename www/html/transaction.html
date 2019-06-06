@@ -12,16 +12,33 @@
     <script type="text/javascript" src="../js/bootstrap.min.js"></script>
     <script type="text/javascript" src="../js/main.js"></script>
 </head>
-<body>
-    <div class="container" style="padding:0px 0px 0px 0px;position:relative">
-        <div w3-include-html="menu.html"></div>
+<body style="background-image:url('../images/money.jpg')">
+    <div style="padding:0px 0px 0px 0px;position:relative">
+        <!-- Top Navigation Menu -->
+        <div class="topnav">
+            <a class="active" style="text-align:center;font-size:15px;color:white"><b>DODAJ TRANSAKCJE</b></a>
+            <div id="myLinks">
+                <a href="../index.html">HOME</a>
+                <a href="javascript:checkLogin('no','transaction.html');">DODAJ TRANSAKCJE</a>
+                <a href="javascript:checkLogin('no','history.html');">HISTORIA OPERACJI</a>
+                <a href="javascript:checkLogin('no','account.html');">KONTO UŻYTKOWNIKA</a>
+                <a href="signIn.html">ZALOGUJ SIĘ</a>
+            </div>
+            <a href="javascript:void(0);" class="icon" onclick="menuFunction()">
+                <i class="fa fa-bars"></i>
+            </a>
+        </div>
+        <!-- End Navigation Manu -->
         <dir class="dataBody">
-            <div class="text">
-                Dodaj zrealizowaną transakcje.<br />
-                Zbuduj historie swoich operacji!
+            <div class="borderText">
+                <div class="text">
+                    Dodaj zrealizowaną transakcje.<br />
+                    Zbuduj historie swoich operacji!
+                </div>
             </div>
             <div class="separator"></div>
             <!-- Poczatek wyswietlenia przycisku TRANSAKCJA -->
+            <center><div class="borderSelectOptins">WYBIERZ TRANSAKCJE:</div></center>
             <select id="transactionEnd" class="btn btn-primary dropdown-toggle center-block" aria-haspopup="true" aria-expanded="false" style="width:75%;text-transform:uppercase;height:40px">
                 <option value="KUPNO">KUPNO</option>
                 <option value="SPRZEDAŻ" style="text-align:center">SPRZEDAŻ</option>
@@ -29,6 +46,7 @@
             <!-- Koniec wyswietlenia przycisku TRANSAKCJA -->
             <div class="separator"></div>
             <!-- Poczatek wyswietlenia przycisku WALUTA -->
+            <center><div class="borderSelectOptins">WYBIERZ WALUTĘ:</div></center>
             <select id="currencyEnd" class="btn btn-primary dropdown-toggle center-block" aria-haspopup="true" aria-expanded="false" style="width:75%;text-transform:uppercase;height:40px">
                 <option value="€">EURO</option>
                 <option value="$" style="text-align:center">DOLAR</option>
@@ -39,7 +57,7 @@
             <!-- Koniec wyswietlenia przycisku WALUTA -->
             <div class="separator"></div>
             <!-- Poczatek wyswietlenia przycisku WALUTA -->
-
+            <center><div class="borderSelectOptins">WYBIERZ KANTOR:</div></center>
             <select id="cantorEnd" class="btn btn-primary dropdown-toggle center-block" aria-haspopup="true" aria-expanded="false" style="width:75%;text-transform:uppercase;height:40px">
                 <option value="GROSZEK">GROSZEK</option>
                 <option value="EXCHANGE" style="text-align:center">EXCHANGE</option>
@@ -49,17 +67,20 @@
             <!-- Koniec wyswietlenia przycisku WALUTA -->
             <div class="separator"></div>
             <!-- Poczatek wyswietlenia inputBoxa ILOSC WALUTY -->
+            <center><div class="borderSelectOptins">ILOŚĆ WALUTY:</div></center>
             <div class="form-group">
-                <input type="number" name="howMuchEnd" class="form-control center-block" id="howMuch" placeholder="Ilość waluty obcej" style="width:75%;text-align:center;height:40px">
+                <input type="number" name="howMuchEnd" class="form-control center-block" id="howMuch" style="width:75%;text-align:center;height:40px">
             </div>
             <!-- Koniec wyswietlenia przycisku inputBoxa ILOSC WALUTY-->
             <div class="separator"></div>
             <!-- Poczatek wyswietlenia inputBoxa KURS JEDNOSTKOWY -->
+            <center><div class="borderSelectOptins">KURS JEDNOSTKOWY:</div></center>
             <div class="form-group">
-                <input type="number" name="unitRateEnd" class="form-control center-block" id="unitRate" placeholder="Kurs jednostkowy" style="width:75%;text-align:center;height:40px">
+                <input type="number" name="unitRateEnd" class="form-control center-block" id="unitRate" style="width:75%;text-align:center;height:40px">
             </div>
             <!-- Koniec wyswietlenia przycisku inputBoxa KURS JEDNOSTKOWY-->
             <div class="separator"></div>
+            <center><div class="borderSelectOptins">DATA:</div></center>
             <div class="form-group">
                 <input type="date" name="getDateEnd" value="" class="form-control center-block" id="getDate" style="width:75%;padding-top:inherit;height:40px">
             </div>
@@ -69,9 +90,7 @@
                 DODAJ
             </button>
             <!-- Koniec wyswietlenia przycisku SZUKAJ -->
-        </dir>           
+        </dir>
     </div>
-    <script>includeHTML();</script>
-    <script>getItem();</script>
 </body>
 </html>

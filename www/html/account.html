@@ -12,13 +12,26 @@
     <script type="text/javascript" src="../js/bootstrap.min.js"></script>
     <script type="text/javascript" src="../js/main.js"></script>
 </head>
-<body>
-    <div class="container" style="padding:0px 0px 0px 0px;position:relative">
-        <div w3-include-html="menu.html"></div>
+<body style="background-image:url('../images/money.jpg')">
+    <div style="padding:0px 0px 0px 0px;position:relative">
+        <!-- Top Navigation Menu -->
+        <div class="topnav">
+            <a class="active" style="text-align:center;font-size:15px;color:white"><b>KONTO UŻYTKOWNIKA</b></a>
+            <div id="myLinks">
+                <a href="../index.html">HOME</a>
+                <a href="javascript:checkLogin('no','transaction.html');">DODAJ TRANSAKCJE</a>
+                <a href="javascript:checkLogin('no','history.html');">HISTORIA OPERACJI</a>
+                <a href="javascript:checkLogin('no','account.html');">KONTO UŻYTKOWNIKA</a>
+                <a href="signIn.html">ZALOGUJ SIĘ</a>
+            </div>
+            <a href="javascript:void(0);" class="icon" onclick="menuFunction()">
+                <i class="fa fa-bars"></i>
+            </a>
+        </div>
+        <!-- End Navigation Manu -->
         <dir class="dataBody">
             <center><h1>Konto uzytkownika</h1></center>
         </dir>
     </div>
-    <script>includeHTML();</script>
 </body>
 </html>

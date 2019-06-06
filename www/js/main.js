@@ -469,26 +469,23 @@ function addTransaction() {
         localStorage.setItem("userHistory", objectJSON);
         delete object;
         delete result;
-        alert("No i masz to w swojej historii :)");
+        alert("I cyk dodane do historii :)");
     }
     else {
         alert("Wszystkie pola są ważne :)");
     }
 }
 
-function showTest() {
-    text = localStorage.getItem("userHistory");
-    obj = JSON.parse(text);
-    document.getElementById('historyID').innerHTML = "";
-    var body = document.getElementsByTagName('body')[0];
-    for (var i = 0; i < obj.length; i++) {
-        var div = document.createElement('div');
-        div.setAttribute("class", "historyBox");
-        this.createElementDiv(div, "cantorText", obj[i].data);
-        this.createElementDiv(div, "testHistory", obj[i].tranzakcja + ": " + obj[i].ilosc + " " + obj[i].waluta);
-        this.createElementDiv(div, "testHistory", "Po kursie: " + obj[i].kurs);
-        this.createElementDiv(div, "testHistory", "Na kwotę: " + obj[i].wartosc + " zł");
-        this.createElementDiv(div, "testHistory", "W kantorze: " + obj[i].kantor);
-        body.appendChild(div);
+function checkLogin(forIndex, nameHTML) {
+    if (confirm('Czy jesteś zalogowany?')) {
+        location.href = nameHTML;
+    }
+    else {
+        if (forIndex === "no") {
+            location.href = "signIn.html";
+        }
+        else {
+            location.href = "html/signIn.html";
+        }  
     }
 }
