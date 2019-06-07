@@ -42,9 +42,7 @@ function jsonToArray(json, typeSort) {
 // Główna funkcja sortowania po dacie w koncie użytkownika.
 var sortBy = (function () {
     var toString = Object.prototype.toString;
-    // default parser function
     var parse = function (x) { return x; };
-    // gets the item to be sorted
     var getItem = function (x) {
         var isObject = x != null && typeof x === "object";
         var isProp = isObject && this.prop in x;
