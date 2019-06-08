@@ -8,56 +8,118 @@
     <link rel="stylesheet" href="../css/style.css" type="text/css">
     <link rel="stylesheet" href="../css/bootstrap.min.css" type="text/css" />
     <link rel="stylesheet" href="../css/bootstrap.css" type="text/css" />
+    <link rel="stylesheet" href="../css/log.css" type="text/css" />
     <script type="text/javascript" src="../js/jquery-3.3.1.min.js"></script>
     <script type="text/javascript" src="../js/bootstrap.min.js"></script>
     <script type="text/javascript" src="../js/main.js"></script>
+    <script>
+        FB.getLoginStatus(function (response) {
+            statusChangeCallback(response);
+        });
+    </script>
 </head>
 <body style="background-image:url('../images/money.jpg')">
+    <!--OD Maćka-->
+    <div id="fb-root"></div>
+    <script async defer crossorigin="anonymous" src="https://connect.facebook.net/pl_PL/sdk.js#xfbml=1&version=v3.3&appId=2240552522828912&autoLogAppEvents=1"></script>
+    
+
+    <script>
+        window.fbAsyncInit = function () {
+            FB.init({
+                appId: '{2295102077246681}',
+                cookie: true,
+                xfbml: true,
+                version: '{v3.3}'
+            });
+
+            FB.AppEvents.logPageView();
+
+        };
+
+        (function (d, s, id) {
+            var js, fjs = d.getElementsByTagName(s)[0];
+            if (d.getElementById(id)) { return; }
+            js = d.createElement(s); js.id = id;
+            js.src = "https://connect.facebook.net/en_US/sdk.js";
+            fjs.parentNode.insertBefore(js, fjs);
+        }(document, 'script', 'facebook-jssdk'));
+    </script>
+    <!--Koniec od Maćka-->
     <div style="padding:0px 0px 0px 0px;position:relative">
         <!-- Top Navigation Menu -->
         <div class="topnav">
             <a class="active" style="text-align:center;font-size:15px;color:white"><b>LOGOWANIE</b></a>
             <div id="myLinks">
-                <a href="../index.html">HOME</a>
-                <a href="javascript:checkLogin('no','transaction.html');">DODAJ TRANSAKCJE</a>
-                <a href="javascript:checkLogin('no','history.html');">HISTORIA OPERACJI</a>
-                <a href="javascript:checkLogin('no','account.html');">KONTO UŻYTKOWNIKA</a>
-                <a href="signIn.html">ZALOGUJ SIĘ</a>
+                <script>linkHref("noIndex")</script>
             </div>
             <a href="javascript:void(0);" class="icon" onclick="menuFunction()">
                 <i class="fa fa-bars"></i>
             </a>
         </div>
         <!-- End Navigation Manu -->
-        <dir>
-            <!--Twój HTML-->
-            <div>
-                <form class="signUp">
-                    <h3>Create Your Account</h3>
-                    <p>
-                        Just enter your email address<br />
-                        and your password for join.
-                    </p>
-                    <input class="w100" type="email" placeholder="Insert eMail" reqired autocomplete='off' />
-                    <input type="password" placeholder="Insert Password" reqired />
-                    <input type="password" placeholder="Verify Password" reqired />
-                    <button class="form-btn sx log-in" type="button">Log In</button>
-                    <button class="form-btn dx" type="submit">Sign Up</button>
-                </form>
-                <form class="signIn">
-                    <h3>Welcome<br />Back !</h3>
-                    <button class="fb" type="button">Log In With Facebook</button>
-                    <p>- or -</p>
-                    <input type="email" placeholder="Insert eMail" autocomplete='off' reqired />
-                    <input type="password" placeholder="Insert Password" reqired />
-                    <button class="form-btn sx back" type="button">Back</button>
-                    <button class="form-btn dx" type="submit">Sign Up</button>
-                </form>
+        <div>
+            <div class="login-wrap">
+                <div class="login-html">
+                    <input id="tab-1" type="radio" name="tab" class="sign-in" checked><label for="tab-1" class="tab">Sign In</label>
+                    <input id="tab-2" type="radio" name="tab" class="sign-up"><label for="tab-2" class="tab">Sign Up</label>
+                    <div class="login-form">
+                        <div id="login_div" class="sign-in-htm">
+                            <div class="group">
+                                <label for="email_field" class="label" style="color:black">Email</label>
+                                <input id="email_field" type="email" class="input">
+                            </div>
+                            <div class="group">
+                                <label for="password_field" class="label" style="color:black">Password</label>
+                                <input id="password_field" type="password" class="input" data-type="password">
+                            </div>
+                            <div class="group">
+                                <button onclick="login()" type="submit" class="button">Sign In</button>
+                            </div>
+                            <div class="hr"></div>
+                            <div>
+                                <fb:login-button scope="public_profile,email" onlogin="checkLoginState();"></fb:login-button>
+                            </div>
+                        </div>
+
+
+                        <!--po zalogowaniu-->
+                        <div class="sign-up-htm">
+                            <div class="group">
+                                <label for="email_field2" class="label" style="color:black">Email Address</label>
+                                <input id="email_field2" type="email" class="input">
+                            </div>
+                            <div class="group">
+                                <label for="password_field2" class="label" style="color:black">Password</label>
+                                <input id="password_field2" type="password" class="input" data-type="password">
+                            </div>
+                            <div class="group">
+                                <button onclick="create_account()" type="submit" class="button">Sign Up</button>
+                            </div>
+                            <div class="hr"></div>
+                            <div class="foot-lnk">
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <!--Koniec twojego HTML-->
-        </dir>
+        </div>
     </div>
-    <script>logIn();</script>
-    <script>signIn();</script>
+        <script src="https://www.gstatic.com/firebasejs/4.8.1/firebase.js"></script>
+        <script>
+            var firebaseConfig = {
+                apiKey: "AIzaSyB06d2W62viVhTxNX-RTX1EVXy6Rrhl5AA",
+                authDomain: "zadziala-f2c18.firebaseapp.com",
+                databaseURL: "https://zadziala-f2c18.firebaseio.com",
+                projectId: "zadziala-f2c18",
+                storageBucket: "zadziala-f2c18.appspot.com",
+                messagingSenderId: "885622318474",
+                appId: "1:885622318474:web:784f3ce2500dbf3a"
+            };
+            // Initialize Firebase
+            firebase.initializeApp(firebaseConfig);
+        </script>
+        <script src="../js/log.js"></script>
+    </div>
 </body>
 </html>

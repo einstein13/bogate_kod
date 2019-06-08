@@ -382,7 +382,9 @@ function addTransaction() {
         object.kantor = cantor;
         object.ilosc = howMuch;
         object.kurs = unitRate;
-        object.wartosc = unitRate * howMuch;
+        resultWartosc = unitRate * howMuch;
+        resultWartosc = Round(resultWartosc, 2);
+        object.wartosc = resultWartosc;
         object.data = date;
         result[0] = object;
         text = localStorage.getItem("userHistory");
@@ -406,7 +408,8 @@ function addTransaction() {
 
 // Funkcja sprawdzająca czy jestesmy zalogowani.
 function checkLogin(forIndex, nameHTML) {
-    if (confirm('Czy jesteś zalogowany?')) {
+    text = localStorage.getItem("database");
+    if (text ==="connect") {
         location.href = nameHTML;
     }
     else {
@@ -450,20 +453,52 @@ function accountResult() {
     } else {
         resultValue = "Brak danych";
     }
+    var cantorList = ["GROSZEK", "KARMELICKA", "BAKSY", "FUTURA PARK", "MERKURY", "EXCHANGE", "CENTUS", "PARANA", "GRODZKA", "AGATKA", "2XJ JERZY HUDAK", "UNION STANDARD", "GROSZ ", "VABANQUE", "INPULS TRADING", "IDZIO", "DOTUS", "BIURA WYMIANY WALUT ŁODZIŃSCY", "INNY"];
+    var countingOffices = 0;
+    for (var j = 0; j < cantorList.length; j++) {
+        if ((text.split(cantorList[j]).length - 1) > 0) {
+            countingOffices++
+        };
+    }
 
     document.getElementById('accountID').innerHTML = "";
     var body = document.getElementsByTagName('body')[0];
-
-    showAccount(body, "historyBox", resultValue, "Twoją ulubioną walutą:");
+    showAccount(body, "historyBox", resultValue, "Twoja ulubiona waluta:");
     showAccount(body, "historyBox", object.length, "Wszystkich transakcji:");
     showAccount(body, "historyBox", sumaKwot, "Łączna wartość wymiany [w zł]:");
+    showAccount(body, "historyBox", countingOffices, "Ilość odwiedzonych kantorów:");
 
 }
 
 function showAccount( body, nameclass, resultValue, text) {
     var div = document.createElement('div');
     div.setAttribute("class", nameclass);
-    this.createElementDiv(div, "testHistory", text);
-    this.createElementDiv(div, "historyUser", resultValue);
+    this.createElementDiv(div, "textAccount", text);
+    this.createElementDiv(div, "valueAccount", resultValue);
     body.appendChild(div);
+}
+
+// Metoda generuje linki w menu aplikacji.
+// metoda na wejściu otrzymuje zmienną określającą, czy linki mająbyć generowane dla indeksu czy nie.
+function linkHref(forIndex) {
+    text = localStorage.getItem("database");
+    if (text === "connect") {
+        nameHref = ["HOME", "DODAJ TRANSAKCJE", "HISTORIA OPERACJI", "KONTO UŻYTKOWNIKA", "WYLOGUJ SIĘ"];
+    }
+    else {
+        nameHref = ["HOME", "DODAJ TRANSAKCJE", "HISTORIA OPERACJI", "KONTO UŻYTKOWNIKA", "ZALOGUJ SIĘ"];
+    }
+    if (forIndex === "index") {
+        linkHref = ["index.html", "javascript:checkLogin('yes','html/transaction.html');", "javascript:checkLogin('yes','html/history.html');", "javascript:checkLogin('yes','html/account.html');", "html/signIn.html"];
+    }
+    else {
+        linkHref = ["../index.html", "javascript:checkLogin('no','transaction.html');", "javascript:checkLogin('no','history.html');", "javascript:checkLogin('no','account.html');", "signIn.html"];
+    }
+    var body = document.getElementById("myLinks");
+    for (var i = 0; i < nameHref.length; i++) {
+        a = document.createElement('a');
+        a.href = linkHref[i]; // Insted of calling setAttribute 
+        a.innerHTML = nameHref[i]; // <a>INNER_TEXT</a>
+        body.appendChild(a); // And append the div to the document body
+    }
 }

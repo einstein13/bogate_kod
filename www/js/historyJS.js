@@ -8,10 +8,10 @@ function showHistory() {
         var div = document.createElement('div');
         div.setAttribute("class", "historyBox");
         this.createElementDiv(div, "historyUser", obj[i].data);
-        this.createElementDiv(div, "testHistory", obj[i].tranzakcja + ": " + obj[i].ilosc + " " + obj[i].waluta);
-        this.createElementDiv(div, "testHistory", "Po kursie: " + obj[i].kurs);
-        this.createElementDiv(div, "testHistory", "Na kwotę: " + obj[i].wartosc + " zł");
-        this.createElementDiv(div, "testHistory", "W kantorze: " + obj[i].kantor);
+        this.createElementDiv(div, "textHistory", obj[i].tranzakcja + ": " + obj[i].ilosc + " " + obj[i].waluta);
+        this.createElementDiv(div, "textHistory", "Po kursie: " + obj[i].kurs);
+        this.createElementDiv(div, "textHistory", "Na kwotę: " + obj[i].wartosc + " zł");
+        this.createElementDiv(div, "textHistory", "W kantorze: " + obj[i].kantor);
         body.appendChild(div);
     }
 }
