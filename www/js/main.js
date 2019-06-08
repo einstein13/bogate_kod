@@ -178,16 +178,16 @@ function getValue(dane, transactionQuantor) {
         for (var counter = 0; counter < 4; counter++) {
             if ((dane.rates[step].saleValue) != 0) { // sprawdzenie czy w pliku JSON jest wartość 0 (dla sprzedaży)
                 if ((dane.rates[step].purchaseValue) != 0) { // sprawdzenie czy w pliku JSON jest wartość 0 (dla kupna)
-                    if (counter == 0) {
+                    if (counter == 0) { // pobranie nazwy kantora
                         counterArray++;
-                        myObject.name = dane.rates[step].name;
+                        myObject.name = dane.rates[step].name; 
                     }
-                    else if (counter == 1) {
+                    else if (counter == 1) { // pobranie ulicy i współrzędnych GPS
                         myObject.street = dane.rates[step].street;
                         myObject.lat = dane.rates[step].lat;
                         myObject.lng = dane.rates[step].lng;
                     }
-                    else if (counter == 2) {
+                    else if (counter == 2) { // warunek sprawdzający dla jakiej transakcji ma pobrać
                         if (transactionQuantor === 'sale') { // warunek sprawdza dla jakiej transakcji ma czytac zmienną z pliku JSON
                             myObject.value = dane.rates[step].saleValue;
                         }
@@ -195,7 +195,7 @@ function getValue(dane, transactionQuantor) {
                             myObject.value = dane.rates[step].purchaseValue;
                         }
                     }
-                    else if (counter == 3) {
+                    else if (counter == 3) { // obliczenie dystansu do kantora
                         var distance = getDistanceFromLatLonInKm(lat, lng, dane.rates[step].lat, dane.rates[step].lng);
                         myObject.distance = distance;
                     }
@@ -222,13 +222,78 @@ function getValue(dane, transactionQuantor) {
     delete result;
 }
 
-// Funkcja sortuje plik JSON w zależności od wyboru transakcji.
+// Funkcja sortuje plik JSON w zależności od odległości do kantoru.
 // Na wejściu metoda otrzymuje zmienną z danymi w strukturze JSON oraz zmienną odnoszącą się do wybranej transakcji.
 function sortJSON(dane, transactionQuantor) {
     var check = 1;
     do {
         check = 0;
         for (var i = 1; i < dane.length; i++) {
+            if (parseFloat(dane[i].distance) < parseFloat(dane[i - 1].distance)) {
+                check += 1;
+                poprzedniName = dane[i].name;
+                nastepnyName = dane[i - 1].name;
+                poprzedniStreet = dane[i].street;
+                nastepnyStreet = dane[i - 1].street;
+                poprzedniLat = dane[i].lat;
+                nastepnyLat = dane[i - 1].lat;
+                poprzedniLng = dane[i].lng;
+                nastepnyLng = dane[i - 1].lng;
+                poprzedniValue = dane[i].value;
+                nastepnyValue = dane[i - 1].value;
+                poprzedniDistance = dane[i].distance;
+                nastepnyDistance = dane[i - 1].distance;
+
+                dane[i].name = nastepnyName;
+                dane[i - 1].name = poprzedniName;
+                dane[i].street = nastepnyStreet;
+                dane[i - 1].street = poprzedniStreet;
+                dane[i].lat = nastepnyLat;
+                dane[i - 1].lat = poprzedniLat;
+                dane[i].lng = nastepnyLng;
+                dane[i - 1].lng = poprzedniLng;
+                dane[i].value = nastepnyValue;
+                dane[i - 1].value = poprzedniValue;
+                dane[i].distance = nastepnyDistance;
+                dane[i - 1].distance = poprzedniDistance;
+            }
+            else {
+                check += 0;
+            }
+        }
+    } while (check > 0);
+    var objectJSON = JSON.stringify(dane);
+    sortDubell(JSON.parse(objectJSON), transactionQuantor);
+}
+
+// Funkcja ma za zadanie usunięcie dubli w pliku JSON
+function sortDubell(data, transactionQuantor) {
+    var result = new Array();
+    result[0] = data[0];
+    var counter = 0;
+    for (var i = 1; i < data.length; i++) {
+        for (var j = 0; j < result.length; j++) {
+            if (result[j].name === data[i].name) {
+                j = result.length;
+            }
+            if ((j + 1) == result.length)  {
+                counter++;
+                result[counter] = data[i];
+                j = result.length;
+            }
+        }  
+    }
+    sortJSON_2(result, transactionQuantor);
+    delete result;
+}
+
+// Funkcja sortuje plik JSON w zależności od wyboru transakcji.
+// Na wejściu metoda otrzymuje zmienną z danymi w strukturze JSON oraz zmienną odnoszącą się do wybranej transakcji.
+function sortJSON_2(dane, transactionQuantor) {
+    var check = 1;
+    do {
+        check = 0;
+        for (var i = 2; i < dane.length; i++) {
             if (transactionQuantor === "sale") {
                 if (parseFloat(dane[i].value) < parseFloat(dane[i - 1].value)) {
                     check += 1;
@@ -399,7 +464,7 @@ function addTransaction() {
         localStorage.setItem("userHistory", objectJSON);
         delete object;
         delete result;
-        alert("I cyk dodane do historii :)");
+        alert("Dodane do historii :)");
     }
     else {
         alert("Wszystkie pola są ważne :)");
@@ -467,7 +532,6 @@ function accountResult() {
     showAccount(body, "historyBox", object.length, "Wszystkich transakcji:");
     showAccount(body, "historyBox", sumaKwot, "Łączna wartość wymiany [w zł]:");
     showAccount(body, "historyBox", countingOffices, "Ilość odwiedzonych kantorów:");
-
 }
 
 function showAccount( body, nameclass, resultValue, text) {
